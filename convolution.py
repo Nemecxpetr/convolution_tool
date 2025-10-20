@@ -320,10 +320,10 @@ def process_pairs(inputs_folder='samples', kernel_path=None, kernels_folder=None
 # ---------- main examples ----------
 if __name__ == "__main__":
     # Uncomment to run examples
-    # process_self(inputs_folder='samples', outputs_folder='conv', mode="full", n=3)
-    # process_self(inputs_folder='samples', outputs_folder='conv', mode="same-first", n=3)
-    # process_self(inputs_folder='samples', outputs_folder='conv', mode="same-center", n=4)
+    # process_self(inputs_folder='samples', outputs_folder='self_conv', mode="full", n=3)
+    # process_self(inputs_folder='samples', outputs_folder='self_conv', mode="same-first", n=3)
+    # process_self(inputs_folder='samples', outputs_folder='self_conv', mode="same-center", n=4)
     # process_self(inputs_folder='samples', outputs_folder='self_conv',  mode="circular", n=3, normalize=True, adsr=True)
 
-    # process_pairs(inputs_folder='samples', kernel_path='kernels/piano-001.wav', mode="full", normalize=True, adsr=True)
-    # process_pairs(inputs_folder='samples', kernel_path='kernels/piano-002.wav', mode="full")
+    # process_pairs(inputs_folder='samples', kernel_path='kernels/test_kernel.wav', mode="full", normalize=True, adsr=True)
+    # process_pairs(inputs_folder='samples', kernel_path='kkernels/test_kernel.wav', mode="full")
