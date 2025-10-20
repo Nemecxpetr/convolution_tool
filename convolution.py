@@ -2,7 +2,19 @@
 convolution.py - Convolution utilities for audio signals
 Author: Petr Němec
 
+This module provides functions for performing convolution operations
+on 1D audio signals, including full, same-length, and circular convolution modes.
+It also includes utilities for loading audio files, peak normalization,
+and applying ADSR envelopes.
 
+Functions:
+- pair_convolution(sig, ker=None, mode="full"): Convolve two signals with specified mode.
+- load_signal(path): Load an audio signal from a file.
+- load_samples(folder_path, normalize=False): Load all .wav files from a folder.
+- process_self(...): Perform self-convolution on audio files in a folder.
+- process_pairs(...): Convolve audio files with specified kernels.
+
+Usage examples are provided in the __main__ section.
 """
 import os
 import numpy as np
@@ -305,17 +317,13 @@ def process_pairs(inputs_folder='samples', kernel_path=None, kernels_folder=None
         sf.write(out_path, y, fs)
         print(f"Wrote: {out_path}  {y.shape} fs={fs}")
 
-# Example usage:
-# process_pairs(inputs_folder='samples', kernel_path='impulse.wav', mode='same-center')
-# process_pairs(inputs_folder='dry', kernels_folder='irs', mode='full')
-
+# ---------- main examples ----------
 if __name__ == "__main__":
     # Uncomment to run examples
     # process_self(inputs_folder='samples', outputs_folder='conv', mode="full", n=3)
     # process_self(inputs_folder='samples', outputs_folder='conv', mode="same-first", n=3)
     # process_self(inputs_folder='samples', outputs_folder='conv', mode="same-center", n=4)
-    process_self(inputs_folder='samples_voice', outputs_folder='convoluted_voice_for_theme',  mode="circular", n=3, normalize=True, adsr=True)
+    # process_self(inputs_folder='samples', outputs_folder='self_conv',  mode="circular", n=3, normalize=True, adsr=True)
 
     # process_pairs(inputs_folder='samples', kernel_path='kernels/piano-001.wav', mode="full", normalize=True, adsr=True)
     # process_pairs(inputs_folder='samples', kernel_path='kernels/piano-002.wav', mode="full")
-    # process_pairs(inputs_folder='dry', kernels_folder='irs', mode="same-first")
